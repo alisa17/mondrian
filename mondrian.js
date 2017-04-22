@@ -19,64 +19,63 @@
             for (let i = 0; i < size; i++) {
                 const line = {};
                 if (Math.random() > 0.5) {
-                   line.x = 0;
-                line.y = 0;
-                line.vy = getRandomInt(1,maxVelocity);
-                line.vx = 0;
-                line.h = getRandomInt(1,line.vy);
-                line.w = canvasWidth;
-                line.color = Math.random() < 0.7 ?'black':'red';
-                lines.push(line);
-                }
-               else {
                     line.x = 0;
-                   line.y = 0;
-                line.vx = getRandomInt(1,maxVelocity);
-                line.vy = 0;
-                line.w = getRandomInt(1,line.vx);
-                line.h = canvasHeight;
-                line.color = Math.random() < 0.7 ?'black':'red';
-                lines.push(line);
+                    line.y = 0;
+                    line.vy = getRandomInt(1, maxVelocity);
+                    line.vx = 0;
+                    line.h = getRandomInt(1, line.vy);
+                    line.w = canvasWidth;
+                    line.color = Math.random() < 0.7 ? 'black' : 'red';
+                    lines.push(line);
+                } else {
+                    line.x = 0;
+                    line.y = 0;
+                    line.vx = getRandomInt(1, maxVelocity);
+                    line.vy = 0;
+                    line.w = getRandomInt(1, line.vx);
+                    line.h = canvasHeight;
+                    line.color = Math.random() < 0.7 ? 'black' : 'red';
+                    lines.push(line);
 
-               }
+                }
             }
             return lines;
         }
 
-var lines = generateLines(15,15);
+        var lines = generateLines(15, 15);
 
 
 
 
-    /*   var lines = [{
-                x: 0,
-                y: 0,
-                w: canvasWidth,
-                h: 7,
-                color: 'red',
-                vx: 0,
-                vy: 9
-            },
-            {
-                x: 0,
-                y: 0,
-                w: canvasWidth,
-                h: 3,
-                color: 'black',
-                vx: 0,
-                vy: 5
-            },
-            {
-                x: 0,
-                y: 5,
-                w: 8,
-                h: canvasHeight,
-                color: 'black',
-                vx: 15,
-                vy: 0
-            }
+        /*   var lines = [{
+                    x: 0,
+                    y: 0,
+                    w: canvasWidth,
+                    h: 7,
+                    color: 'red',
+                    vx: 0,
+                    vy: 9
+                },
+                {
+                    x: 0,
+                    y: 0,
+                    w: canvasWidth,
+                    h: 3,
+                    color: 'black',
+                    vx: 0,
+                    vy: 5
+                },
+                {
+                    x: 0,
+                    y: 5,
+                    w: 8,
+                    h: canvasHeight,
+                    color: 'black',
+                    vx: 15,
+                    vy: 0
+                }
 
-        ]; */
+            ]; */
 
 
         function draw() {
@@ -108,6 +107,19 @@ var lines = generateLines(15,15);
 
 
         requestAnimationFrame(draw);
+
+        function playSound(id) {
+            var audio = document.getElementById(id);
+
+            // Stop the sound in case it's already playing
+            audio.pause();
+            audio.currentTime = 0;
+
+            audio.play();
+        }
+
+
+        playSound('old');
 
 
     }
