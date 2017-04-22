@@ -2,10 +2,10 @@
 
     function init() {
 
-        var myCanvas = document.getElementById("canvas");
-        var context = myCanvas.getContext("2d");
-        var canvasWidth = context.canvas.width;
-        var canvasHeight = context.canvas.height;
+        const myCanvas = document.getElementById("canvas");
+        const context = myCanvas.getContext("2d");
+        const canvasWidth = context.canvas.width;
+        const canvasHeight = context.canvas.height;
 
 
         function getRandomInt(low, high) {
@@ -42,7 +42,7 @@
             return lines;
         }
 
-        var lines = generateLines(15, 15);
+        const lines = generateLines(15, 15);
 
 
 
@@ -83,8 +83,8 @@
             context.clearRect(0, 0, context.canvas.width, context.canvas.height);
             context.strokeRect(0, 0, context.canvas.width, context.canvas.height);
 
-            for (var i = 0; i < lines.length; i++) {
-                var line = lines[i];
+            for (let i = 0; i < lines.length; i++) {
+                const line = lines[i];
                 context.fillStyle = line.color;
                 context.fillRect(line.x, line.y, line.w, line.h);
 
@@ -109,12 +109,10 @@
         requestAnimationFrame(draw);
 
         function playSound(id) {
-            var audio = document.getElementById(id);
-
+            const audio = document.getElementById(id);
             // Stop the sound in case it's already playing
             audio.pause();
             audio.currentTime = 0;
-
             audio.play();
         }
 
